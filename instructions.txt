@@ -19,10 +19,10 @@ What is Expected -
 6. Milestone 2 - deploy the GCP resources manually through console as packaged zips
 7. Good to have - deploy the resources through terraform
  
-Key evaluation points
-Code best practices
-All improvements from last tasks should be included
-Understanding of cloud services, developing and deploying resource on GCP.
-Viva/questionnaire on GCP
-Initial understanding of end to end development of serverless microservices
+* Key evaluation points
+1. Code best practices
+2. All improvements from last tasks should be included
+3. Understanding of cloud services, developing and deploying resource on GCP.
+4. Viva/questionnaire on GCP
+5. Initial understanding of end to end development of serverless microservices
 
