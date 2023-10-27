@@ -1,0 +1,28 @@
+Task 3 
+
+Problem statement
+
+Deploy the Employee Management system to Google Cloud
+
+
+Aim of the problem
+
+Deploy your REST APIs developed for the employee management system on GCP and develop understanding of how the different GCP services work which help software engineers develop serverless micro-services.
+
+What is Expected -
+1. The REST API code should be deployed on cloud functions which are unauthenticated(accessible over the internet)
+2. Migrate your DB from CSV to GCP firestore collections.
+3. Provide IAM access required to save data in firestore from cloud functions
+4. Each CRUD operation as per the previous task should be performed by respective cloud function
+5. Each of the API calls from previous task should now work from the swagger definition.
+6. Milestone 1 - deploy the GCP resources manually through console using the GCP console UI
+6. Milestone 2 - deploy the GCP resources manually through console as packaged zips
+7. Good to have - deploy the resources through terraform
+ 
+Key evaluation points
+Code best practices
+All improvements from last tasks should be included
+Understanding of cloud services, developing and deploying resource on GCP.
+Viva/questionnaire on GCP
+Initial understanding of end to end development of serverless microservices
+
