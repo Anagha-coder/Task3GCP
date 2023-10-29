@@ -1,0 +1,172 @@
+basePath: /
+definitions:
+  controller.Employee:
+    properties:
+      email:
+        type: string
+      firstName:
+        type: string
+      id:
+        type: integer
+      lastName:
+        type: string
+      password:
+        type: string
+      role:
+        type: string
+    type: object
+host: localhost:8080
+info:
+  contact: {}
+  description: Your API Description
+  title: We're deploying REST API on GCP
+  version: "1.0"
+paths:
+  /employees:
+    get:
+      description: Get a list of all employees
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            items:
+              $ref: '#/definitions/controller.Employee'
+            type: array
+      summary: Get all employees
+    post:
+      consumes:
+      - application/json
+      description: Create a new employee
+      parameters:
+      - description: Employee object to be created
+        in: body
+        name: employee
+        required: true
+        schema:
+          $ref: '#/definitions/controller.Employee'
+      produces:
+      - application/json
+      responses:
+        "201":
+          description: Employee created successfully
+          schema:
+            additionalProperties:
+              type: string
+            type: object
+        "400":
+          description: Invalid request payload
+        "500":
+          description: Internal Server Error
+      summary: Create a new employee
+  /employees/{id}:
+    delete:
+      consumes:
+      - application/json
+      description: Delete an existing employee by ID
+      parameters:
+      - description: Employee ID to be deleted
+        in: path
+        name: id
+        required: true
+        type: number
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: Employee deleted successfully
+          schema:
+            additionalProperties:
+              type: string
+            type: object
+        "400":
+          description: Invalid employee ID
+        "404":
+          description: Employee not found
+        "500":
+          description: Internal Server Error
+      summary: Delete an existing employee
+    get:
+      description: Get an employee by ID
+      parameters:
+      - description: ID
+        in: path
+        name: id
+        required: true
+        type: number
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/controller.Employee'
+        "400":
+          description: Invalid employee ID
+        "404":
+          description: Employee not found
+        "500":
+          description: Internal Server Error
+      summary: Get an employee by ID
+    put:
+      consumes:
+      - application/json
+      description: Update an existing employee by ID
+      parameters:
+      - description: Employee ID to be updated
+        in: path
+        name: id
+        required: true
+        type: number
+      - description: Updated employee object
+        in: body
+        name: employee
+        required: true
+        schema:
+          $ref: '#/definitions/controller.Employee'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: Employee updated successfully
+          schema:
+            additionalProperties:
+              type: string
+            type: object
+        "400":
+          description: Invalid request payload
+        "404":
+          description: Employee not found
+        "500":
+          description: Internal Server Error
+      summary: Update an existing employee
+  /employees/search:
+    get:
+      description: Search employees based on the specified field and value
+      parameters:
+      - description: Field to search (e.g., FirstName, LastName, Email, Role)
+        in: query
+        name: field
+        required: true
+        type: string
+      - description: Value to search for
+        in: query
+        name: value
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            items:
+              $ref: '#/definitions/controller.Employee'
+            type: array
+        "400":
+          description: 'Bad Request: Invalid field or value'
+        "500":
+          description: Internal Server Error
+      summary: Search employees by field and value
+swagger: "2.0"

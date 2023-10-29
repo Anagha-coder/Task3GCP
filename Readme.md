@@ -2,7 +2,7 @@
 
 This project showcases the implementation of an Employee Management System on Google Cloud Platform (GCP). It utilizes the Go programming language for creating APIs and Firestore for data storage. The project encompasses basic CRUD (Create, Read, Update, Delete) functionalities, which are made accessible through REST APIs. These APIs are deployed as serverless microservices using Google Cloud Functions.
 
-## Project Overview - check id somethis is missing
+## Project Overview - check if somethis is missing
 1. GCP Services: Google Cloud Functions, Firestore, IAM/Service Accounts
 2. Programming Language: Go (Golang)
 3. API Documentation: Swagger
@@ -52,7 +52,7 @@ This project showcases the implementation of an Employee Management System on Go
 ### 1. Clone the Repository:
 
 ```bash
-git clone <https://github.com/Anagha-coder/Task3GCP.git>
+git clone https://github.com/Anagha-coder/Task3GCP.git
 cd employee-management-system --configure folder name etc
 ```
 
