@@ -1,31 +1,34 @@
 package utils
 
 import (
+	"context"
 	"log"
 	"os"
+
+	"cloud.google.com/go/logging"
 )
 
 var (
-	InfoLogger  *log.Logger
-	ErrorLogger *log.Logger
+	Logger *logging.Logger
 )
 
 func InitLogger() {
-	logFile, err := os.OpenFile("application.log", os.O_CREATE|os.O_WRONLY|os.O_APPEND, 0666)
+	ctx := context.Background()
+	client, err := logging.NewClient(ctx, "task3gcp")
 	if err != nil {
-		log.Fatalln("Failed to open log file:", err)
+		log.Fatalf("Failed to create logging client: %v", err)
 	}
+	defer client.Close()
 
-	InfoLogger = log.New(logFile, "INFO: ", log.Ldate|log.Ltime|log.Lshortfile)
-	ErrorLogger = log.New(logFile, "ERROR: ", log.Ldate|log.Ltime|log.Lshortfile)
+	Logger = client.Logger("my-log")
 
-	log.SetOutput(logFile)
+	log.SetOutput(os.Stdout)
 }
 
 func InfoLog(message string) {
-	InfoLogger.Println(message)
+	Logger.Log(logging.Entry{Payload: message, Severity: logging.Info})
 }
 
 func ErrorLog(err error) {
-	ErrorLogger.Println(err)
+	Logger.Log(logging.Entry{Payload: err.Error(), Severity: logging.Error})
 }
