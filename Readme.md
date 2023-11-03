@@ -2,17 +2,25 @@
 
 This project showcases the implementation of an Employee Management System on Google Cloud Platform (GCP). It utilizes the Go programming language for creating APIs and Firestore for data storage. The project encompasses basic CRUD (Create, Read, Update, Delete) functionalities, which are made accessible through REST APIs. These APIs are deployed as serverless microservices using Google Cloud Functions.
 
-## Project Overview - check if somethis is missing
+## Project Overview - 
 1. GCP Services: Google Cloud Functions, Firestore, IAM/Service Accounts
+
 2. Programming Language: Go (Golang)
-3. API Documentation: Swagger
+
+3. API Documentation: SwaggerUI
+
 4. Data Storage: Firestore NoSQL database
 
-## Features -- change this
-1. CRUD Operations: Create, Read, Update, and Delete employee records.
-2. Serverless Deployment: Utilizes Google Cloud Functions for serverless execution.
-3. Swagger Documentation: API endpoints are documented using Swagger definitions.
-4. Firestore Integration: Employee data is stored in Google Cloud Firestore collections.
+## Key Functionalities
+1. Employee Management: Enables the creation, retrieval, updating, and deletion of employee records.
+
+2. Serverless Architecture: Leverages Google Cloud Functions for seamless and scalable deployment.
+
+3. Interactive API Documentation: Provides comprehensive Swagger documentation for all API endpoints.
+Seamless Integration with Google 
+
+4. Cloud Firestore: Stores and manages employee data efficiently using Google Cloud Firestore collections.
+
 
 ## Getting Started
 
@@ -34,16 +42,11 @@ This project showcases the implementation of an Employee Management System on Go
 - [Google Cloud Functions](https://cloud.google.com/functions#)
 - [Google Firestore](https://cloud.google.com/firestore/docs/)
 
-- Check Google Cloud's Identity and Access Management to understand more about Access Control
-[Identity and Access Management | IAM](https://cloud.google.com/iam/docs)
+- Check Google Cloud's [Identity and Access Management](https://cloud.google.com/iam/docs)  to understand more about Access Control
+
 
 5. Swagger UI - REST API Documentation Tool
 [Swagger Documenatation](https://swagger.io/docs/)
-
-6. [Terraform by HashiCorp](https://www.terraform.io/)
-- [Teraform Documentation](https://developer.hashicorp.com/terraform?product_intent=terraform)
-- [Terraform on Google Cloud documentation](https://cloud.google.com/docs/terraform)
-
 
 
 
@@ -66,6 +69,7 @@ go mod tidy
 ### 3. Environment Variables:
 
 - Configure necessary environment variables for Firestore authentication and API endpoints.
+  - Application Default Credentials Using Cloud SDK
 
 ### 4. Run Locally
 
@@ -73,23 +77,46 @@ go mod tidy
 go run main.go
 ```
 
-## Deployment to Google Cloud - do chnages - untouched
-Firestore Setup:
+## Configuring Google Cloud Environment
 
-Create a Firestore database on Google Cloud Console.
-Configure necessary security rules for Firestore.
-Cloud Functions Deployment:
+## Sevice Account on GCP
 
-Deploy individual Cloud Functions for each API endpoint using the Google Cloud Console or Terraform.
-Swagger Documentation:
+[Service accounts overview](https://cloud.google.com/iam/docs/service-account-overview)
 
-Deploy Swagger UI on a web server to provide interactive API documentation.
-API Documentation
-Swagger documentation is available at <swagger-url> after deployment.
-Explore and test the API endpoints using Swagger's interactive interface.
+- Create a New User Service account for your GCP Project
 
-## more sections to come in between
-- keep adding as you build project
+- Generate a Security key and
+[Set up Application Default Credentials](https://cloud.google.com/docs/authentication/provide-credentials-adc) using [Cloud SDK](https://cloud.google.com/sdk/docs/install)
+
+## Firestore Setup
+
+[Create a collection of Firestore documents](https://cloud.google.com/firestore/docs/samples/firestore-query-collection-group-dataset#firestore_query_collection_group_dataset-go)
+
+
+
+[Configure Security Rules for Firestore](https://cloud.google.com/firestore/docs/security/get-started)
+
+## Set Up IAM
+
+[IAM basic and predefined roles reference](https://cloud.google.com/iam/docs/understanding-roles)
+
+## Cloud Functions 
+
+[Basics Of Cloud Functions](https://cloud.google.com/functions#)
+
+Deploy individual Cloud Functions for each API endpoint.
+
+## Swagger
+
+- Deploy Swagger UI on a web server to provide interactive API documentation.
+- [Swagger Static Files](https://swagger.io/docs/open-source-tools/swagger-ui/usage/installation/) 
+
+
+
+
+## Cloud Logging
+
+[Setting Up Cloud Logging for Go](https://cloud.google.com/logging/docs/setup/go)
 
 
 
@@ -97,7 +124,9 @@ Explore and test the API endpoints using Swagger's interactive interface.
 
 - Ensure that appropriate IAM roles and permissions are set for Cloud Functions to access Firestore.
 
-- Implement secure coding practices to prevent common vulnerabilities like SQL injection and cross-site scripting. -change this
+- Check Security Rules of Firestore go get access to the database.
+
+
 
 ## Contributing
 
